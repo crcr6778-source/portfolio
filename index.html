@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Al-Hussein — Media Buyer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #000; }
+
+  body {
+    background: #0a0a0a;
+    color: #e8e4dc;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 0 24px 80px;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 60px 0 40px;
+    border-bottom: 0.5px solid #222;
+    margin-bottom: 48px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  .hero-name {
+    font-family: 'Bebas Neue', serif;
+    font-size: 72px;
+    line-height: 1;
+    letter-spacing: .04em;
+    color: #f0ece4;
+    margin-bottom: 14px;
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: #666;
+    font-weight: 300;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .hero-sub b { color: #aaa; font-weight: 500; }
+  .dot { width: 3px; height: 3px; border-radius: 50%; background: #333; display: inline-block; }
+
+  /* SECTION LABEL */
+  .sec-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid #1c1c1c;
+  }
+
+  /* HEADLINE METRICS */
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+    border: 0.5px solid #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  .hm {
+    background: #0e0e0e;
+    padding: 24px 18px;
+  }
+
+  .hm-l {
+    font-size: 10px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 6px;
+  }
+
+  .hm-v {
+    font-family: 'Bebas Neue', serif;
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: .02em;
+    color: #e8e4dc;
+  }
+
+  .hm-v.g { color: #3DCCA0; }
+  .hm-s { font-size: 10px; color: #3a3a3a; margin-top: 4px; }
+
+  /* PLATFORM CARDS */
+  .platforms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  .pc {
+    border: 0.5px solid #1c1c1c;
+    border-radius: 12px;
+    padding: 20px;
+    background: #0e0e0e;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pc::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .snap::before  { background: #FFFC00; }
+  .meta::before  { background: #1877F2; }
+  .tiktok::before{ background: #FF004F; }
+  .shopify::before{ background: #96BF48; }
+  .salla::before { background: #3DCCA0; }
+
+  .pc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid #1c1c1c;
+  }
+
+  .pc-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: .05em;
+  }
+
+  .snap   .pc-badge { background: #FFFC00; color: #000; }
+  .meta   .pc-badge { background: #1877F2; color: #fff; }
+  .tiktok .pc-badge { background: #111; color: #FF004F; border: 1px solid #FF004F44; }
+  .shopify .pc-badge{ background: #96BF48; color: #fff; }
+  .salla  .pc-badge { background: #3DCCA0; color: #000; }
+
+  .pc-period { font-size: 10px; color: #3a3a3a; margin-left: auto; }
+
+  .mg { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mg4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .full { grid-column: 1 / -1; }
+
+  .m { display: flex; flex-direction: column; gap: 3px; }
+  .m-l { font-size: 10px; color: #444; text-transform: uppercase; letter-spacing: .06em; }
+  .m-v { font-size: 17px; font-weight: 500; line-height: 1.2; color: #e8e4dc; }
+  .m-v.g { color: #3DCCA0; }
+  .m-v.sm { font-size: 13px; }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    background: #0d2b22;
+    color: #3DCCA0;
+    margin-top: 4px;
+    border: 0.5px solid #1d5040;
+  }
+
+  /* REACH BARS */
+  .reach-section { margin-bottom: 48px; }
+
+  .reach-bar {
+    border: 0.5px solid #1c1c1c;
+    border-radius: 12px;
+    padding: 20px;
+    background: #0e0e0e;
+    margin-bottom: 10px;
+  }
+
+  .rb-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+
+  .rb-title { font-size: 12px; color: #555; }
+  .rb-num {
+    font-family: 'Bebas Neue', serif;
+    font-size: 30px;
+    letter-spacing: .02em;
+    color: #e8e4dc;
+  }
+
+  .bar-track {
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .bar-fill { height: 100%; border-radius: 99px; background: #e8e4dc; opacity: .25; }
+  .bar-fill.bright { opacity: .5; }
+  .bar-meta { display: flex; justify-content: space-between; font-size: 10px; color: #3a3a3a; }
+
+  /* FOOTER */
+  .footer {
+    font-size: 10px;
+    color: #2a2a2a;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 0.5px solid #181818;
+    margin-top: 12px;
+  }
+
+  @media (max-width: 640px) {
+    .hero-name { font-size: 48px; }
+    .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+    .platforms { grid-template-columns: 1fr; }
+    .mg4 { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">Performance Marketing Portfolio · 2025–2026</p>
+    <div class="hero-name">Muhammad Al-Hussein</div>
+    <div class="hero-sub">
+      <b>Media Buyer</b>
+      <span class="dot"></span>
+      <span>Snapchat · Meta · TikTok</span>
+      <span class="dot"></span>
+      <span>Shopify · Salla</span>
+      <span class="dot"></span>
+      <span>Jeddah, Saudi Arabia</span>
+    </div>
+  </div>
+
+  <!-- HEADLINE NUMBERS -->
+  <p class="sec-label">Headline numbers</p>
+  <div class="hero-metrics">
+    <div class="hm">
+      <div class="hm-l">Total Revenue</div>
+      <div class="hm-v g">AED 612K+</div>
+      <div class="hm-s">Shopify store</div>
+    </div>
+    <div class="hm">
+      <div class="hm-l">Salla Peak Revenue</div>
+      <div class="hm-v g">﷼2.2M</div>
+      <div class="hm-s">+1050% growth</div>
+    </div>
+    <div class="hm">
+      <div class="hm-l">Peak ROAS</div>
+      <div class="hm-v">4.81x</div>
+      <div class="hm-s">Snapchat · Apr 2026</div>
+    </div>
+    <div class="hm">
+      <div class="hm-l">Total Impressions</div>
+      <div class="hm-v">50M+</div>
+      <div class="hm-s">All platforms</div>
+    </div>
+  </div>
+
+  <!-- PLATFORMS -->
+  <p class="sec-label">Platform breakdown</p>
+  <div class="platforms">
+
+    <!-- SNAPCHAT -->
+    <div class="pc snap">
+      <div class="pc-head">
+        <span class="pc-badge">SNAPCHAT</span>
+        <span class="pc-period">Oct 2025 – Apr 2026</span>
+      </div>
+      <div class="mg">
+        <div class="m">
+          <span class="m-l">Best ROAS</span>
+          <span class="m-v g">4.81x</span>
+          <span class="tag">Apr 1–7, 2026</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Avg ROAS</span>
+          <span class="m-v g">4.23x</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Total Revenue</span>
+          <span class="m-v">﷼99,340</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Best Week Rev.</span>
+          <span class="m-v">﷼39,077</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Total Spend</span>
+          <span class="m-v">﷼23,490</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Purchases</span>
+          <span class="m-v">408</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Impressions</span>
+          <span class="m-v">6,034,066</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Avg CPA</span>
+          <span class="m-v">﷼41.56</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- META -->
+    <div class="pc meta">
+      <div class="pc-head">
+        <span class="pc-badge">META</span>
+        <span class="pc-period">Jan 2025 – Jun 2026</span>
+      </div>
+      <div class="mg">
+        <div class="m">
+          <span class="m-l">Best Campaign ROAS</span>
+          <span class="m-v g">4.57x</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Avg ROAS</span>
+          <span class="m-v g">~2.4x</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Campaigns Run</span>
+          <span class="m-v">30+</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Platform</span>
+          <span class="m-v sm">Instagram + Facebook</span>
+        </div>
+        <div class="m full">
+          <span class="m-l">Notable Campaigns</span>
+          <span class="m-v sm">Ramadan Collection · Feb Sales · Spring Series</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIKTOK -->
+    <div class="pc tiktok">
+      <div class="pc-head">
+        <span class="pc-badge">TIKTOK</span>
+        <span class="pc-period">Feb 2026</span>
+      </div>
+      <div class="mg">
+        <div class="m">
+          <span class="m-l">Conv. Value (Ad 1)</span>
+          <span class="m-v g">﷼1,149,000</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Conv. Value (Ad 2)</span>
+          <span class="m-v g">﷼32,543</span>
+        </div>
+        <div class="m">
+          <span class="m-l">CTR (Ad 1)</span>
+          <span class="m-v">8.66%</span>
+        </div>
+        <div class="m">
+          <span class="m-l">CTR (Ad 2)</span>
+          <span class="m-v">9.57%</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Frequency (Ad 1)</span>
+          <span class="m-v">5.00</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Frequency (Ad 2)</span>
+          <span class="m-v">11.78</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALLA -->
+    <div class="pc salla">
+      <div class="pc-head">
+        <span class="pc-badge">SALLA</span>
+        <span class="pc-period">2025 – Mar 2026</span>
+      </div>
+      <div class="mg">
+        <div class="m">
+          <span class="m-l">Peak Revenue</span>
+          <span class="m-v g">﷼2.2M</span>
+          <span class="tag">+1050%</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Peak Orders</span>
+          <span class="m-v">9,400</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Feb 2026 Revenue</span>
+          <span class="m-v">﷼93.5K</span>
+          <span class="tag">+6676%</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Feb 2026 Orders</span>
+          <span class="m-v">129</span>
+          <span class="tag">+4200%</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Peak AOV</span>
+          <span class="m-v g">﷼722.5</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Return Rate</span>
+          <span class="m-v g">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOPIFY — FULL WIDTH -->
+    <div class="pc shopify full">
+      <div class="pc-head">
+        <span class="pc-badge">SHOPIFY</span>
+        <span class="pc-period">Oct 2024 – Jun 2026 · UAE Market (AED)</span>
+      </div>
+      <div class="mg4">
+        <div class="m">
+          <span class="m-l">Total Sales</span>
+          <span class="m-v g">AED 612,479</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Gross Sales</span>
+          <span class="m-v">AED 596,193</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Net Sales</span>
+          <span class="m-v">AED 583,274</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Total Orders</span>
+          <span class="m-v">1,179</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Shipping Revenue</span>
+          <span class="m-v">AED 24,600</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Returns</span>
+          <span class="m-v g">AED 0</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Discounts Given</span>
+          <span class="m-v">AED 12,918</span>
+        </div>
+        <div class="m">
+          <span class="m-l">Category</span>
+          <span class="m-v sm">Luxury Fashion · Abayas</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REACH & SCALE -->
+  <p class="sec-label">Reach & scale</p>
+  <div class="reach-section">
+    <div class="reach-bar">
+      <div class="rb-top">
+        <span class="rb-title">Total paid impressions across all platforms</span>
+        <span class="rb-num">49,983,748</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill bright" style="width:100%;"></div></div>
+      <div class="bar-meta"><span>Snapchat · Meta · TikTok</span><span>~50 Million impressions</span></div>
+    </div>
+    <div class="reach-bar">
+      <div class="rb-top">
+        <span class="rb-title">Total ad spend managed</span>
+        <span class="rb-num">﷼437,169</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:85%;"></div></div>
+      <div class="bar-meta"><span>Avg CPM: ﷼8.75</span><span>Multi-platform</span></div>
+    </div>
+  </div>
+
+  <p class="footer">All figures sourced directly from platform dashboards · Snapchat Ads · Meta Ads Manager · TikTok Ads · Shopify · Salla · 2025–2026</p>
+
+</div>
+</body>
+</html>
